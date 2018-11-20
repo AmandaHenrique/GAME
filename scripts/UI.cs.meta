@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3128a1b1619709f49af3802f52f42593
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bullets: {instanceID: 0}
+  - yourBullets: {instanceID: 0}
+  - points: {instanceID: 0}
+  - clickE: {instanceID: 0}
+  - showMessageKey: {fileID: 100170, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
