@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    float speed = 6f;
+    public static float speed = 6f;
     float gravity = 9.81f;
     private CharacterController characterController;
     public GameObject particle;
@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
         //da acesso ao metodo Move
         characterController = GetComponent<CharacterController>();
         bullets = 200;
+        speed = 6f;
+        
 
         ui = GameObject.Find("Canvas").GetComponent<UI>();
         sounds = GameObject.Find("Weapon").GetComponent<AudioSource>();
@@ -57,6 +59,9 @@ public class Player : MonoBehaviour
         blood = GameObject.Find("blood").GetComponent<AudioSource>();
         varPause = false;
         lifes = 11;
+
+        ui.hideVictory();
+        ui.hideLose();
 
     }
 

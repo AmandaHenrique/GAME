@@ -17,6 +17,7 @@ public class UI : MonoBehaviour {
     public GameObject keyui;
     public GameObject keyuiVer;
     public GameObject lose;
+    public GameObject victory;
 
     public GameObject pause;
     public bool isPause;
@@ -95,6 +96,11 @@ public class UI : MonoBehaviour {
         lose.SetActive(true);
     }
 
+    public void hideLose()
+    {
+        lose.SetActive(false);
+    }
+
 
     //PAUSE
 
@@ -120,4 +126,31 @@ public class UI : MonoBehaviour {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    //VICTORY
+
+    public void showVictory()
+    {
+        victory.SetActive(true);
+        Player.speed = 0;
+        StartCoroutine(waitVictory());
+        
+    }
+
+    public void hideVictory()
+    {
+        victory.SetActive(false);
+    }
+
+    IEnumerator waitVictory()
+    {
+        yield return new WaitForSeconds(10f);
+        Player.varPause = false;
+        swat.isPreta = true;
+    }
+
+
+    //LOSE
+
+
 }
