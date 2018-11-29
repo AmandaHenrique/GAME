@@ -34,6 +34,7 @@ public class swat : MonoBehaviour {
                     clicou = true;
                     Player.varPause = true;
                     ui.hideE();
+                    ui.cursorTrue();
                     
                 }
             }

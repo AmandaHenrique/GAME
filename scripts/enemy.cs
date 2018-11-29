@@ -41,13 +41,13 @@ public class enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Player.varPause == false)
-        {
+        //if(Player.varPause == false)
+        //{
             followPlayer();
             attackPlayer();
             enemyDie();
             animator.SetBool("hitAnimator", hitAnimator);
-        }
+        //}
         
     }
 

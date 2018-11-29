@@ -8,6 +8,7 @@ public class UI : MonoBehaviour {
     public Text bullets;
     public Text yourBullets;
     public Text points;
+    public Text rank;
 
     public Sprite[] playerLifes;
     public Image lifesImage;
@@ -47,6 +48,11 @@ public class UI : MonoBehaviour {
     public void updatePoints(int pontos)
     {
         points.text = "Points - " + pontos;
+    }
+
+    public void updateRank(int rankValue)
+    {
+        rank.text = "Rank - "+rankValue;
     }
 
     public void showGetKey()
@@ -91,11 +97,11 @@ public class UI : MonoBehaviour {
     }
 
 
+    //LOSE
     public void showLose()
     {
         lose.SetActive(true);
     }
-
     public void hideLose()
     {
         lose.SetActive(false);
@@ -150,7 +156,6 @@ public class UI : MonoBehaviour {
     }
 
 
-    //LOSE
 
 
 }

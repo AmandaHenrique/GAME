@@ -35,6 +35,13 @@ public class mouse : MonoBehaviour {
         }
 
     }
+
+
+
+
+
+
+
     void MouseY()
     {
         if(Player.varPause == false)

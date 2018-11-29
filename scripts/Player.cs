@@ -12,19 +12,17 @@ public class Player : MonoBehaviour
     public GameObject hitMarker;
     public GameObject hitBlood;
 
-
     public int lifes;
     public static int points = 0;
+    private int position = 0;
+    public static int[] vetor = new int[3];
 
     private UI ui;
 
-    
     public static int deaths;
     public int de;
 
     public GameObject keySilver;
-    
-    
     
     public AudioSource sounds;
     public AudioSource sounds2;
@@ -51,7 +49,7 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         bullets = 200;
         speed = 6f;
-        
+        Time.timeScale = 1;
 
         ui = GameObject.Find("Canvas").GetComponent<UI>();
         sounds = GameObject.Find("Weapon").GetComponent<AudioSource>();
@@ -59,13 +57,16 @@ public class Player : MonoBehaviour
         blood = GameObject.Find("blood").GetComponent<AudioSource>();
         varPause = false;
         lifes = 11;
+        points = 0;
+        yourBullets = 500;
+        deaths = 0;
 
         ui.hideVictory();
         ui.hideLose();
 
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         de = deaths;
@@ -263,10 +264,18 @@ public class Player : MonoBehaviour
     {
         if(lifes == 0)
         {
+
+            vetor[position] = points;
+            position++;
+            insertionSort(vetor);
+  
+
             varPause = true;
             ui.showLose();
             Time.timeScale = 0;
             ui.cursorTrue();
+
+            
         }
     }
 
@@ -296,5 +305,83 @@ public class Player : MonoBehaviour
         ui.hideShowGetKey();
     }
     
+    public void insertionSort(int[] array)
+    {
+
+        int[] antigoVetor = new int[3]; //caso der erro colocar 2 pois o vetor tem 3 posições
+        int[] novoVetor = new int[3];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            novoVetor[i] = array[i];
+            antigoVetor[i] = array[i];
+        }
     
+        int aux = 0;
+        int j = 0;
+        for (int i = 1; i < novoVetor.Length; i++)
+        {
+            aux = novoVetor[i];
+            j = i;
+            while (j != 0 && novoVetor[j - 1] > aux)
+            {
+                novoVetor[j] = novoVetor[j - 1];
+                j--;
+            }
+            novoVetor[j] = aux;
+            
+        }
+
+        ui.updateRank(novoVetor[3]);
+
+    }
+
+    void verificar(int position)
+    {
+        if(position == 3)
+        {
+            position = 0;
+            //no update
+        }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void BubbleSort()
+    {
+        if(points > vetor[0])
+        {
+            vetor[0] = points;
+        }
+        else
+        {
+            vetor[0] = vetor[0];
+        }
+    }
 }
